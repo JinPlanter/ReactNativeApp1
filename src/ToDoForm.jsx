@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, TextInput, View, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -19,14 +19,21 @@ const styles = StyleSheet.create({
     },
 });
 
-export default function ToDoList() {
+
+export default function ToDoForm({ handleTask }) {
+    const [taskText, setTaskText] = useState('');
+
     return (
         <View style={styles.form}>
             <TextInput
                 style={styles.input}
                 placeholder="Add a new task..."
+
+                // when the user inputs text onChangeText is called, text is then passed into the function as an argument.
+                onChangeText={(text) => setTaskText(text)}
+                value={taskText}
             />
-            <Button title="Add" />
+            <Button title="Add" onPress={() => handleTask(taskText)} />
         </View>
     );
 }
