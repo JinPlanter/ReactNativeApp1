@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function ToDoList({tasks = []}) {
+export default function ToDoList({ tasks = [] }) {
 
 
   return (
